@@ -29,54 +29,6 @@ public class Dose {
         return XMLfunctions.makeTag("Dose",multiplicity + amount + manufacturer + brand + batch);
     }
 
-    public Integer getmMultiplicity() {
-        return mMultiplicity;
-    }
-
-    public void setmMultiplicity(Integer mMultiplicity) {
-        this.mMultiplicity = mMultiplicity;
-    }
-
-    public Integer getmAmountValue() {
-        return mAmountValue;
-    }
-
-    public void setmAmountValue(Integer mAmountValue) {
-        this.mAmountValue = mAmountValue;
-    }
-
-    public String getmAmountUnit() {
-        return mAmountUnit;
-    }
-
-    public void setmAmountUnit(String mAmountUnit) {
-        this.mAmountUnit = mAmountUnit;
-    }
-
-    public String getmManufacturer() {
-        return mManufacturer;
-    }
-
-    public void setmManufacturer(String mManufacturer) {
-        this.mManufacturer = mManufacturer;
-    }
-
-    public String getmBrand() {
-        return mBrand;
-    }
-
-    public void setmBrand(String mBrand) {
-        this.mBrand = mBrand;
-    }
-
-    public String getmBatch() {
-        return mBatch;
-    }
-
-    public void setmBatch(String mBatch) {
-        this.mBatch = mBatch;
-    }
-
     private Integer mMultiplicity;
     private Integer mAmountValue;
     private String mAmountUnit;

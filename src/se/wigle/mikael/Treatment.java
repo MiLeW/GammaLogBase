@@ -1,7 +1,9 @@
 package se.wigle.mikael;
 
+import sun.util.calendar.BaseCalendar;
+
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -13,16 +15,20 @@ public class Treatment {
 	}
 
 	public String toXMLString(){
-		String doses;
-		String date = XMLfunctions.makeTag("Date", mDate.toString());
+		String doses = new String();
+		String date =  mDate.toXMLString();
 		for (Dose dose : lDoses) {
-			doses = doses + toXMLString(dose);
+			doses = doses + dose.toXmlString();
 		}
 		doses = XMLfunctions.makeTag("Doses",doses);
 		return XMLfunctions.makeTag("Treatment",date+doses);
 	}
 
+	public void setDate(Integer year, Integer month, Integer day){
+		mDate = new mediLogDate(year, month, day);
+	}
 
-	private Date mDate;
+
+	private mediLogDate mDate;
 	private List<Dose> lDoses = new ArrayList<Dose>();
 }

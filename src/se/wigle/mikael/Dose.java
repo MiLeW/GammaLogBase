@@ -26,7 +26,7 @@ public class Dose {
         String manufacturer = XMLfunctions.makeTag("Manufacturer",mManufacturer);
         String batch = XMLfunctions.makeTag("Brand",mBrand);
         String brand = XMLfunctions.makeTag("Batch",mBatch);
-        return XMLfunctions.makeTag("Dose",multiplicity + amount + manufacturer + brand + batch);
+        return XMLfunctions.makeTag("Dose",multiplicity + amount + manufacturer + batch + brand);
     }
 
     private Integer mMultiplicity;

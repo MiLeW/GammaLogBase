@@ -1,5 +1,6 @@
 package se.wigle.mikael;
 
+import org.json.simple.JSONObject;
 /**
  * Created by mikae_000 on 2014-11-20.
  */
@@ -27,6 +28,11 @@ public class Dose {
         String batch = XMLfunctions.makeTag("Brand",mBrand);
         String brand = XMLfunctions.makeTag("Batch",mBatch);
         return XMLfunctions.makeTag("Dose",multiplicity + amount + manufacturer + batch + brand);
+    }
+
+    public String toJSONString(){
+        JSONObject json;
+
     }
 
     private Integer mMultiplicity;

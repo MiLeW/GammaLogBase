@@ -1,5 +1,7 @@
 package se.wigle.mikael;
 
+import org.json.*;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -23,6 +25,14 @@ public class mediLogDate {
                 XMLfunctions.makeTag("Month", Integer.toString(mCalendar.get(Calendar.MONTH))) +
                 XMLfunctions.makeTag("Day", Integer.toString(mCalendar.get(Calendar.DATE)));
         return XMLfunctions.makeTag("Date", content);
+    }
+
+    public JSONObject toJSON(){
+        JSONObject jsondate = new JSONObject();
+        jsondate.put("Year",mCalendar.get(Calendar.YEAR));
+        jsondate.put("Month",mCalendar.get(Calendar.MONTH));
+        jsondate.put("Day",mCalendar.get(Calendar.DATE));
+        return jsondate;
     }
 
     private Calendar mCalendar;

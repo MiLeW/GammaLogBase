@@ -1,6 +1,6 @@
 package se.wigle.mikael;
 
-import org.json.simple.JSONObject;
+import org.json.*;
 /**
  * Created by mikae_000 on 2014-11-20.
  */
@@ -30,9 +30,17 @@ public class Dose {
         return XMLfunctions.makeTag("Dose",multiplicity + amount + manufacturer + batch + brand);
     }
 
-    public String toJSONString(){
-        JSONObject json;
-
+    public JSONObject toJSON(){
+        JSONObject json = new JSONObject();
+        json.put("Multiplicity",mMultiplicity);
+        JSONObject amount = new JSONObject();
+        amount.put("Value",mAmountValue);
+        amount.put("Unit",mAmountUnit);
+        json.put("Amount",amount);
+        json.put("Manufacturer",mManufacturer);
+        json.put("Brand",mBrand);
+        json.put("Batch",mBatch);
+        return json;
     }
 
     private Integer mMultiplicity;

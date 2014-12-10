@@ -3,6 +3,8 @@ package se.wigle.mikael;
 
 
 import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,7 +13,22 @@ import java.util.List;
 /**
  * Created by mikae_000 on 2014-11-20.
  */
-public class Treatment {
+public class Medication {
+
+	public Medication()
+	{
+		lDoses = new ArrayList<Dose>();
+	}
+
+	public Medication(JSONObject json){
+		mDate = new mediLogDate(json.getJSONObject("Date"));
+		lDoses = new ArrayList<Dose>();
+		JSONArray jsonDoses = json.getJSONArray("Doses");
+		for (int i = 0; i < jsonDoses.length(); i++)
+		{
+			lDoses.add(new Dose(jsonDoses.getJSONObject(i)));
+		}
+	}
 	public void addDose(Dose newDose) {
 		lDoses.add(newDose);
 	}
@@ -43,5 +60,6 @@ public class Treatment {
 
 
 	private mediLogDate mDate;
-	private List<Dose> lDoses = new ArrayList<Dose>();
+	private String mDescription;
+	private List<Dose> lDoses;
 }

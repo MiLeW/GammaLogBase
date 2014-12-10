@@ -20,6 +20,17 @@ public class Dose {
         mBrand          = brand;
         mBatch          = batch;
     }
+
+    public Dose(JSONObject json){
+        mMultiplicity = json.getInt("Multiplicity");
+        JSONObject jsonAmount = json.getJSONObject("Amount");
+        mAmountValue = jsonAmount.getInt("Value");
+        mAmountUnit = jsonAmount.getString("Unit");
+        mManufacturer = json.getString("Manufacturer");
+        mBrand = json.getString("Brand");
+        mBatch = json.getString("Batch");
+
+    }
     public String toXmlString(){
         String multiplicity = XMLfunctions.makeTag("Multiplicity",mMultiplicity.toString());
         String amount = XMLfunctions.makeTag("Amount",XMLfunctions.makeTag("Value",mAmountValue.toString()) +
